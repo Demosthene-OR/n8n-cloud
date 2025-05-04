@@ -1,14 +1,16 @@
 FROM n8nio/n8n
 
-# Crée le répertoire de données à la main (au lieu d'utiliser VOLUME)
-RUN mkdir -p /data && chown node:node /data
+# Créer le dossier data en tant que root
+USER root
+RUN mkdir -p /data && chmod -R 775 /data
 
-# Définis l'utilisateur node pour éviter les erreurs EACCES
-USER node
+# Utiliser l'utilisateur node intégré de l'image n8n (ID 1000)
+USER 1000
 
-# Répertoire de travail
+# Définir le répertoire de travail
 WORKDIR /data
 
-# Démarre n8n
+# Démarrer n8n
 CMD ["n8n"]
+
 
