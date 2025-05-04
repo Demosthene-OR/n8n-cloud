@@ -1,16 +1,13 @@
 FROM n8nio/n8n
 
-# Créer le dossier data en tant que root
-USER root
-RUN mkdir -p /data && chmod -R 775 /data
+# Crée le dossier data sans changer d'utilisateur ni ownership
+RUN mkdir -p /data && chmod 777 /data
 
-# Utiliser l'utilisateur node intégré de l'image n8n (ID 1000)
-USER 1000
-
-# Définir le répertoire de travail
+# Définit le dossier de travail
 WORKDIR /data
 
-# Démarrer n8n
+# Démarre n8n normalement
 CMD ["n8n"]
+
 
 
