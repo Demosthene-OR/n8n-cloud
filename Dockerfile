@@ -5,5 +5,6 @@ FROM n8nio/n8n
 ENV N8N_BASIC_AUTH_USER=olivier.renouard1103@gmail.com
 ENV N8N_BASIC_AUTH_PASSWORD=sR110362$
 
+
 # Port exposé par défaut
 EXPOSE 5678
