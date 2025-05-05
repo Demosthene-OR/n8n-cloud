@@ -1,1 +1,7 @@
-nodes_modules
+node_modules
+.git
+.gitignore
+.env
+Dockerfile
+railway.json
+README.md
