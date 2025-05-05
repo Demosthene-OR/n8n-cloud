@@ -1,19 +1,13 @@
 FROM n8nio/n8n
 
-# Travailler dans le bon répertoire
-WORKDIR /home/node
-
-# Crée le répertoire avant que le volume le masque
-RUN mkdir -p /home/node/.n8n
-
-# Copie un script d’entrée qui corrigera les permissions au runtime
+# Copie le script custom d'entrée
 COPY docker-entrypoint.sh /docker-entrypoint.sh
+
+# Rends-le exécutable
 RUN chmod +x /docker-entrypoint.sh
 
-# Utilise node pour exécuter
-USER node
+# Utilise ce script comme point d’entrée
+ENTRYPOINT ["/docker-entrypoint.sh"]
 
-ENTRYPOINT ["/tini", "--"]
-CMD ["/docker-entrypoint.sh"]
 
 
