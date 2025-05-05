@@ -1,9 +1,6 @@
 {
   "build": {
-    "builder": "DOCKER_COMPOSE"
-  },
-  "deploy": {
-    "startCommand": null
+    "dockerfilePath": "Dockerfile"
   }
 }
 

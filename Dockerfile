@@ -1,13 +1,12 @@
 FROM n8nio/n8n
 
-# Copie le script AVANT d’essayer de modifier ses droits
-COPY docker-entrypoint.sh /docker-entrypoint.sh
+ENV N8N_BASIC_AUTH_USER=admin
+ENV N8N_BASIC_AUTH_PASSWORD=admin
 
-# Rends le script exécutable
-# RUN chmod +x /docker-entrypoint.sh
+# Volume de config monté à runtime
+VOLUME ["/home/node/.n8n"]
 
-# Utilise ce script comme point d’entrée
-ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["n8n"]
 
 
 
