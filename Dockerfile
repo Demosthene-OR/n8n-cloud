@@ -1,5 +1,6 @@
 FROM n8nio/n8n
 
+
 ENV N8N_BASIC_AUTH_USER=admin
 ENV N8N_BASIC_AUTH_PASSWORD=admin
 
